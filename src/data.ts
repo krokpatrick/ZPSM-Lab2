@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export type Subject = {
     name: string;
     grade: number;
@@ -37,3 +39,38 @@ function printSummary(user: User) {
 }
 
 printSummary(user);
+
+function findSubjectWeight(user: User, weight: number) {
+    let foundSubject = user.subjects.find(subject => subject.weight === weight)
+
+    if (foundSubject) {
+        console.log(`Found subject with weight ${weight}: ${foundSubject.name}`);
+    }
+    else {
+        console.log(`No subject found with weight ${weight}`);
+    }
+
+}
+
+function findSubjectWeightLodash(user: User, weight: number) {
+    let foundSubjectlodash = _.find(user.subjects, { weight: weight });
+
+    if (foundSubjectlodash) {
+        console.log(`Found subject with weight ${weight} using lodash: ${foundSubjectlodash.name}`);
+    }
+    else {
+        console.log(`No subject found with weight ${weight} using lodash`);
+    }
+}
+
+
+findSubjectWeight(user, 1);
+findSubjectWeight(user, 7);
+findSubjectWeightLodash(user, 1);
+findSubjectWeightLodash(user, 7);
+
+
+
+
+
+
