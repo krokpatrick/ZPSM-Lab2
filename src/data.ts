@@ -1,4 +1,6 @@
 import _ from 'lodash';
+import {save, load} from './storage.ts';
+
 
 export type Subject = {
     name: string;
@@ -68,6 +70,15 @@ findSubjectWeight(user, 1);
 findSubjectWeight(user, 7);
 findSubjectWeightLodash(user, 1);
 findSubjectWeightLodash(user, 7);
+
+
+save(user, 'user.json');
+
+let loadedUser : User = load("user.json");
+
+console.log(loadedUser);
+
+printSummary(loadedUser)
 
 
 
